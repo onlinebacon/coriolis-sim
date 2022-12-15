@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<style>
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				background-color: #171717;
+			}
+			.field {
+				font-size: 12px;
+				margin-bottom: 10px;
+				color: #ccc;
+			}
+			.field input {
+				background-color: #111;
+				border: 1px solid #444;
+				color: #aaa;
+				height: 26px;
+				padding-left: 5px;
+				width: 200px;
+			}
+			textarea {
+				font-size: 12px;
+				background-color: #222;
+				color: #fff;
+				width: 245px;
+				padding: 5px;
+				height: 125px;
+			}
+			input[type=button] {
+				margin-bottom: 10px;
+			}
+		</style>
+		<script type="module" src="script.js"></script>
+	</head>
+	<body>
+		<div class="field">
+			<div class="field-title">Latitude</div>
+			<input type="text" name="lat" value="0"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Longitude</div>
+			<input type="text" name="lon" value="0"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Height</div>
+			<input type="text" name="height" value="120000 ft"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Azimuth</div>
+			<input type="text" name="azm" value="0"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Elevation</div>
+			<input type="text" name="alt" value="0"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Speed</div>
+			<input type="text" name="speed" value="1000 mph"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Radius</div>
+			<input type="text" name="radius" value="3959 mi"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Earth's rotation period (sec)</div>
+			<input type="text" name="rotationPeriod" value="86400"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Delta time (sec)</div>
+			<input type="text" name="deltaTime" value="0.0002"/>
+		</div>
+		<div class="field">
+			<div class="field-title">Acc. of gravity at the surface (m/s²)</div>
+			<input type="text" name="gSurfaceAcc" value="9.81"/>
+		</div>
+		<input type="button" value="Run"/>
+		<br>
+		<form spellcheck="false">
+			<textarea></textarea>
+		</form>
+	</body>
+</html>
