@@ -50,6 +50,7 @@ const parseMap = {
 	radius: parseDist,
 };
 
+let simId = 0;
 runButton.addEventListener('click', async () => {
 	const args = {};
 	inputs.forEach(input => {
@@ -58,9 +59,11 @@ runButton.addEventListener('click', async () => {
 		args[name] = value;
 	});
 	const sim = Simulation(args);
+	const id = ++simId;
 	while (!sim.impact) {
-		sim.run(100);
+		sim.run(5000);
 		textarea.value = JSON.stringify(sim.info(), null, '  ');
 		await freeThread();
+		if (id !== simId) break;
 	}
 });
