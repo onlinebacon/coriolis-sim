@@ -2,7 +2,8 @@ import Simulation from "./simulation.js";
 
 const inputs = [...document.querySelectorAll('[type="text"]')];
 const runButton = document.querySelector('[type="button"]');
-const textarea = document.querySelector('textarea');
+const info = document.querySelector('.fields textarea');
+const logs = document.querySelector('.logs textarea');
 const freeThread = () => new Promise(done => setTimeout(done, 0));
 
 const distUnits = {
@@ -62,7 +63,8 @@ runButton.addEventListener('click', async () => {
 	const id = ++simId;
 	while (!sim.impact) {
 		sim.run(5000);
-		textarea.value = JSON.stringify(sim.info(), null, '  ');
+		info.value = JSON.stringify(sim.info(), null, '  ');
+		logs.value = sim.logs.join('\n');
 		await freeThread();
 		if (id !== simId) break;
 	}
