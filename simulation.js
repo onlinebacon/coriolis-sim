@@ -97,11 +97,18 @@ const Simulation = ({
 			return this;
 		},
 		info: function() {
-			const { px, py, pz, time, rotationPeriod, itCount } = this;
+			const { px, py, pz, radius, time, rotationPeriod, itCount } = this;
 			let rotated = TAU*(time/rotationPeriod);
 			let pos = rotateY([ px, py, pz ], rotated);
-			let coord = getCoords(pos).map(toDeg);
-			return { impact: this.impact, time: time, coord, iterations: itCount };
+			let height = sqrt(px*px + py*py + pz*pz) - radius;
+			let [ lat, lon ] = getCoords(pos).map(val => toDeg(val));
+			return {
+				impact: this.impact,
+				time,
+				lat, lon,
+				height,
+				iterations: itCount,
+			};
 		}
 	};
 };
