@@ -64,7 +64,7 @@ runButton.addEventListener('click', async () => {
 	while (!sim.impact) {
 		sim.run(5000);
 		info.value = JSON.stringify(sim.info(), null, '  ');
-		logs.value = sim.logs.join('\n');
+		logs.value = 'time,x,y,z,height\n' + sim.logs.join('\n');
 		await freeThread();
 		if (id !== simId) break;
 	}

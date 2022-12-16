@@ -46,6 +46,7 @@ const Simulation = ({
 	radius,
 	rotationPeriod,
 	deltaTime,
+	logInterval,
 	gSurfaceAcc,
 }) => {
 	let [ px, py, pz ] = getPosition(lat, lon, radius, height);
@@ -63,7 +64,7 @@ const Simulation = ({
 		G,
 		itCount: 0,
 		nextLog: 0,
-		logInterval: 1,
+		logInterval: logInterval,
 		impact: false,
 		logs: [],
 		run: function(nIt) {
